@@ -3,10 +3,10 @@ package com.thalespupo.syntheticstudy
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.list_item_example.view.*
 
 class MyAdapter : ListAdapter<String, MyAdapter.MyViewHolder>(DiffCallBack()) {
 
@@ -26,8 +26,10 @@ class MyAdapter : ListAdapter<String, MyAdapter.MyViewHolder>(DiffCallBack()) {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+        private val textView: TextView? = itemView.findViewById(R.id.myTextView)
+
         fun bind(item: String) {
-            itemView.myTextView.text = item
+            textView?.text = item
         }
 
     }
