@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.list_item_example.view.*
+import com.thalespupo.syntheticstudy.databinding.ListItemExampleBinding
 
 class MyAdapter : ListAdapter<String, MyAdapter.MyViewHolder>(DiffCallBack()) {
 
@@ -26,8 +26,10 @@ class MyAdapter : ListAdapter<String, MyAdapter.MyViewHolder>(DiffCallBack()) {
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
+        private val binding = ListItemExampleBinding.bind(itemView)
+
         fun bind(item: String) {
-            itemView.myTextView.text = item
+            binding.myTextView.text = item
         }
 
     }
