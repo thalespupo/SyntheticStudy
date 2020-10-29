@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.list_item_example.view.*
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.list_item_example.*
 
 class MyAdapter : ListAdapter<String, MyAdapter.MyViewHolder>(DiffCallBack()) {
 
@@ -24,10 +25,13 @@ class MyAdapter : ListAdapter<String, MyAdapter.MyViewHolder>(DiffCallBack()) {
     }
 
 
-    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView), LayoutContainer {
+
+        override val containerView: View?
+            get() = itemView
 
         fun bind(item: String) {
-            itemView.myTextView.text = item
+            myTextView.text = item
         }
 
     }
